@@ -5,29 +5,24 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
+
       - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y python3-pip git zip unzip openjdk-17-jdk autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
           pip3 install buildozer cython==0.29.36
-      - name: Create spec
+
+      - name: Build APK
         run: |
           mkdir -p YDownloader
           cp main.py YDownloader/
           cd YDownloader
-          cat > buildozer.spec << 'EOF'
-          [app]
-          title = Y-Downloader Pro
-          package.name = ydownloaderpro
-          package.domain = org.ydownloader
-          source.dir = .
-          source.include_exts = py,png,jpg,kv,atlas
-          version = 1.0
-          requirements = python3,kivy==2.3.0,kivymd==1.1.1,yt-dlp,certifi,charset-normalizer,urllib3,requests,mutagen,pycryptodomex,websockets
-          orientation = portrait
-          fullscreen = 0
-          android.permissions = INTERNET,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE
-          android.api = 33
-          android.minapi = 21
-          android.ndk = 25b
-          android.sdk = 33
+          cat > buildozer.spec << 'SPEC'
+[app]
+title = Y-Downloader Pro
+package.name = ydownloaderpro
+package.domain = org.ydownloader
+source.dir = .
+source.include_exts = py,png,jpg,kv,atlas
+version = 1.0
+requirements = python3,kivy==2.3.0,kivymd==1.1.1,
