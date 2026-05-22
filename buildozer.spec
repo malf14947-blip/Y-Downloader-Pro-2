@@ -1,1 +1,21 @@
+[app]
+title = Y-Downloader Pro
+package.name = ydownloaderpro
+package.domain = org.ydownloader
+source.dir = .
+source.include_exts = py,png,jpg,kv,atlas
+version = 1.0
+requirements = python3,kivy==2.3.0,kivymd==1.1.1,yt-dlp,certifi,charset-normalizer,urllib3,requests,mutagen,pycryptodomex,websockets
+orientation = portrait
+fullscreen = 0
+android.permissions = INTERNET,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE
+android.api = 33
+android.minapi = 21
+android.ndk = 25b
+android.sdk = 33
+android.accept_sdk_license = True
+android.archs = arm64-v8a
 
+[buildozer]
+log_level = 2
+warn_on_root = 1
