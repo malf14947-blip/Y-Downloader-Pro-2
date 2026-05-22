@@ -5,7 +5,7 @@ package.domain = org.ydownloader
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
 version = 1.0
-requirements = python3,kivy==2.3.0,kivymd==1.1.1,yt-dlp,certifi,charset-normalizer,urllib3,requests,mutagen,pycryptodomex,websockets
+requirements = python3,kivy==2.3.0,kivymd==1.1.1
 orientation = portrait
 fullscreen = 0
 android.permissions = INTERNET,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE
