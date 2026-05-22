@@ -12,15 +12,10 @@ jobs:
           pip3 install buildozer cython==0.29.36
       - name: Build APK
         run: |
-          mkdir -p YDownloader
-          cp main.py YDownloader/
-          cd YDownloader
-          python3 -c "
-          spec = open('buildozer.spec', 'w')
-          spec.write('[app]\n')
-          spec.write('title = Y-Downloader Pro\n')
-          spec.write('package.name = ydownloaderpro\n')
-          spec.write('package.domain = org.ydownloader\n')
-          spec.write('source.dir = .\n')
-          spec.write('source.include_exts = py,png,jpg,kv,atlas\n')
-          spec.write('version = 1.0\n')
+          cp main.py .
+          echo "y" | buildozer android debug
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: YDownloader-APK
+          path: bin/*.apk
